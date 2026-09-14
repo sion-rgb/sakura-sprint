@@ -1,0 +1,21 @@
+<!doctype html>
+<html lang="zh-Hant">
+<head>
+<meta charset="utf-8"><meta name="viewport" content="width=device-width,initial-scale=1">
+<title>月白花徑 · Sakura Sprint</title>
+<meta name="description" content="和月白結跑過月光、櫻花與旋律交織的 3D 花徑。">
+<link rel="icon" href="data:image/svg+xml,%3Csvg xmlns='http://www.w3.org/2000/svg' viewBox='0 0 64 64'%3E%3Crect width='64' height='64' rx='18' fill='%232f354c'/%3E%3Ctext x='12' y='47' font-size='44' fill='%23dbd9e6'%3E☾%3C/text%3E%3C/svg%3E">
+<link rel="stylesheet" href="style.css?v=11">
+</head>
+<body>
+<div id="scene"></div><div class="vignette"></div>
+<header><a class="brand" href="./"><b>☾</b><span>月白花徑<small>SAKURA SPRINT</small></span></a><div class="topright"><span class="world">01 <i>—</i> 月下花徑</span><button id="pause" aria-label="暫停遊戲">Ⅱ</button><button id="sound" aria-label="開啟音效">♪</button></div></header>
+<aside class="stats"><div><small>前行 DISTANCE</small><strong><span id="distance">0</span><em>m</em></strong></div><div><small>收集旋律</small><strong class="gold">♫ <span id="coins">0</span></strong></div></aside>
+<main id="intro" class="panel"><span class="eyebrow"><i></i> A NOCTURNE IN BLOOM</span><h1>月白<span>結</span></h1><span class="character-name">TSUKISHIRO YUI</span><div class="hairline"></div><p>月光落在髮梢，旋律藏進風裡。<br>陪月白結，跑過今夜的花徑。</p><button class="primary" id="start">開始旅程 <span>↗</span></button><button class="inspect" id="inspect">↻ <span>細看月白結</span></button><button id="reference" class="reference">角色設定圖 <span>↗</span></button><div class="hint"><kbd>←</kbd><kbd>→</kbd> 轉線 <i>·</i> <kbd>SPACE</kbd> 跳躍</div></main>
+<div id="dialog" class="modal" hidden><div class="card"><span class="eyebrow" id="endtag">A QUIET MOMENT</span><h2 id="endtitle">讓風等一等</h2><p id="result"></p><button class="primary" id="resume">繼續旅程 <span>↗</span></button><button class="secondary" id="restart">重新開始</button><button class="secondary" id="home">返回角色</button></div></div>
+<div id="reference-dialog" class="reference-modal" hidden><button id="reference-close" aria-label="關閉角色設定圖">關閉 ×</button><img src="yui-setting.png" alt="月白結原始角色設定圖：銀白色長髮、藍灰眼睛、黑白服裝、琴盒與黑貓吊飾"><p>原始角色設定 · 本次製作依據</p></div>
+<footer><div><span class="dot"></span><span id="status">月白結準備中</span></div><span class="footright">A SOFTER WORLD, THROUGH MUSIC.</span></footer>
+<div id="touch"><button id="left" aria-label="向左">←</button><button id="jump" aria-label="跳躍">↑ 跳躍</button><button id="right" aria-label="向右">→</button></div>
+<div id="character-controls"><div class="character-heading">月白結 <small>TSUKISHIRO YUI</small></div><div class="views"><button id="view-front">正面</button><button id="view-side">側面</button><button id="view-back">背面</button><button id="view-close">臉部特寫</button><button id="view-motion">示範跑步</button></div><span>拖曳，細看每個角度</span><button id="view-exit">返回花徑 ↗</button></div>
+<audio id="bgm" src="Sunny_Hillside_Dash.mp3" preload="metadata" loop></audio><div id="toast" aria-live="polite"></div><script type="module" src="game.js?v=11"></script>
+</body></html>
