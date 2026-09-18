@@ -1,0 +1,28 @@
+{
+  "sha256": "67934e9e1bb0327707af2c0ddf29f68e5181cff587701bd16d82e7deb21f7113",
+  "engine": "Three.js r170",
+  "scope": "Actual GLTFLoader, AnimationMixer, Skeleton, CPU skinning. Texture decoding and WebGL rendering are NOT tested.",
+  "clips": {
+    "Idle": {
+      "duration": 2.4000000953674316,
+      "frames": 33,
+      "maxDisplacement": 0.014201857027285585,
+      "maxFaceDistanceDrift": 9.155509683722585e-11
+    },
+    "Jump": {
+      "duration": 0.8999999761581421,
+      "frames": 33,
+      "maxDisplacement": 0.24221545798303867,
+      "maxFaceDistanceDrift": 2.1825645457607123e-11
+    },
+    "Run": {
+      "duration": 0.800000011920929,
+      "frames": 33,
+      "maxDisplacement": 0.3535591357753968,
+      "maxFaceDistanceDrift": 0
+    }
+  },
+  "passed": true,
+  "browserVerified": false,
+  "visualApproval": false
+}

@@ -1,0 +1,30 @@
+{
+  "date": "2026-09-18",
+  "model_sha256": "67934e9e1bb0327707af2c0ddf29f68e5181cff587701bd16d82e7deb21f7113",
+  "surface": "Codex in-app Chromium browser, local game preview",
+  "viewport": "1280x720",
+  "observed": {
+    "model_ready": true,
+    "bones": 28,
+    "material_primitives": 31,
+    "triangles": 370002,
+    "clips": ["Idle", "Jump", "Run"],
+    "front_and_closeup_visible": true,
+    "side_run_visible": true,
+    "right_lane_after_right_key": 1,
+    "middle_lane_after_left_key": 0,
+    "jump_animation_active": true,
+    "jump_height_observed": 1.5028076399998993,
+    "pause_and_resume": true,
+    "landed_y": 0,
+    "game_over_distance": 156.46459098459246,
+    "notes_collected": 8,
+    "music_title": "Sunny Hillside Dash",
+    "music_duration_seconds": 175.255458,
+    "music_time_advanced": true,
+    "music_paused_with_game_pause": true,
+    "console_errors_or_warnings": []
+  },
+  "not_verified": ["physical mobile device performance", "fixed frame rate", "complete illustration-level fidelity"],
+  "artistic_approval": false
+}

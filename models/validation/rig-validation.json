@@ -1,0 +1,167 @@
+{
+  "animations": [
+    "Idle",
+    "Jump",
+    "Run"
+  ],
+  "skin_count": 1,
+  "bone_count": 28,
+  "triangles": 370002,
+  "vertices": 191522,
+  "weight_errors": [],
+  "run_ground_checks": [
+    {
+      "frame": 1,
+      "support": "L",
+      "left_min_z": 0.004000215601176024,
+      "right_min_z": 0.004
+    },
+    {
+      "frame": 2,
+      "support": "L",
+      "left_min_z": 0.004,
+      "right_min_z": 0.04204617002606392
+    },
+    {
+      "frame": 3,
+      "support": "L",
+      "left_min_z": 0.004,
+      "right_min_z": 0.07749982019513846
+    },
+    {
+      "frame": 4,
+      "support": "L",
+      "left_min_z": 0.004,
+      "right_min_z": 0.10794442826509476
+    },
+    {
+      "frame": 5,
+      "support": "L",
+      "left_min_z": 0.004,
+      "right_min_z": 0.13130554677546025
+    },
+    {
+      "frame": 6,
+      "support": "L",
+      "left_min_z": 0.004,
+      "right_min_z": 0.1459909461401403
+    },
+    {
+      "frame": 7,
+      "support": "L",
+      "left_min_z": 0.004,
+      "right_min_z": 0.1509998462125659
+    },
+    {
+      "frame": 8,
+      "support": "L",
+      "left_min_z": 0.004,
+      "right_min_z": 0.14599102111160756
+    },
+    {
+      "frame": 9,
+      "support": "L",
+      "left_min_z": 0.004,
+      "right_min_z": 0.13130577727779746
+    },
+    {
+      "frame": 10,
+      "support": "L",
+      "left_min_z": 0.004,
+      "right_min_z": 0.10794461639225483
+    },
+    {
+      "frame": 11,
+      "support": "L",
+      "left_min_z": 0.004,
+      "right_min_z": 0.0774999948181212
+    },
+    {
+      "frame": 12,
+      "support": "L",
+      "left_min_z": 0.004,
+      "right_min_z": 0.04204641030728817
+    },
+    {
+      "frame": 13,
+      "support": "R",
+      "left_min_z": 0.004,
+      "right_min_z": 0.004000215601176024
+    },
+    {
+      "frame": 14,
+      "support": "R",
+      "left_min_z": 0.04204617002606392,
+      "right_min_z": 0.004
+    },
+    {
+      "frame": 15,
+      "support": "R",
+      "left_min_z": 0.07749982019513846,
+      "right_min_z": 0.004
+    },
+    {
+      "frame": 16,
+      "support": "R",
+      "left_min_z": 0.10794442826509476,
+      "right_min_z": 0.004
+    },
+    {
+      "frame": 17,
+      "support": "R",
+      "left_min_z": 0.13130554677546025,
+      "right_min_z": 0.004
+    },
+    {
+      "frame": 18,
+      "support": "R",
+      "left_min_z": 0.1459909461401403,
+      "right_min_z": 0.004
+    },
+    {
+      "frame": 19,
+      "support": "R",
+      "left_min_z": 0.1509998462125659,
+      "right_min_z": 0.004
+    },
+    {
+      "frame": 20,
+      "support": "R",
+      "left_min_z": 0.14599102111160756,
+      "right_min_z": 0.004
+    },
+    {
+      "frame": 21,
+      "support": "R",
+      "left_min_z": 0.13130577727779746,
+      "right_min_z": 0.004
+    },
+    {
+      "frame": 22,
+      "support": "R",
+      "left_min_z": 0.10794461639225483,
+      "right_min_z": 0.004
+    },
+    {
+      "frame": 23,
+      "support": "R",
+      "left_min_z": 0.0774999948181212,
+      "right_min_z": 0.004
+    },
+    {
+      "frame": 24,
+      "support": "R",
+      "left_min_z": 0.04204641030728817,
+      "right_min_z": 0.004
+    },
+    {
+      "frame": 25,
+      "support": "L",
+      "left_min_z": 0.004000215601176024,
+      "right_min_z": 0.004
+    }
+  ],
+  "jump_uses_game_root_motion": true,
+  "visual_approval": false,
+  "published": false
+}
