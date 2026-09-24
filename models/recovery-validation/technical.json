@@ -1,0 +1,102 @@
+{
+  "scope": "Asset identity, original rig deformation, retained playback fixes; browser review is separate.",
+  "assets": {
+    "dist/yui-canonical.glb": {
+      "sourceCommit": "1bc2847",
+      "sha256": "8ca10b33086a49902c923af6842879e5f7fcbb29f667ed4ee63ed4afcd935476",
+      "unchanged": true,
+      "lineEndingsNormalized": false
+    },
+    "dist/projection.json": {
+      "sourceCommit": "1bc2847",
+      "sha256": "1c83a7c6fea505c8035a0df952c93b2eb19266e6b87aa0d754ab0627cc8961d4",
+      "unchanged": true,
+      "lineEndingsNormalized": true
+    },
+    "models/Yui-Canonical.blend": {
+      "sourceCommit": "1bc2847",
+      "sha256": "51c9200f9cbd7ca0894489cc9fd7deb11e600c6ed57b5cf067c3f7bc5a1cdfa4",
+      "unchanged": true,
+      "lineEndingsNormalized": false
+    },
+    "dist/yui-rebuilt.glb": {
+      "sourceCommit": "301b2bb",
+      "sha256": "67934e9e1bb0327707af2c0ddf29f68e5181cff587701bd16d82e7deb21f7113",
+      "unchanged": true,
+      "lineEndingsNormalized": false
+    },
+    "models/Yui-Rebuilt.blend": {
+      "sourceCommit": "301b2bb",
+      "sha256": "4c91a0050e3f5f82faf405235151433a47fa68e5b39f6428635b0b00f0eeaf40",
+      "unchanged": true,
+      "lineEndingsNormalized": false
+    },
+    "dist/yui-setting.png": {
+      "sourceCommit": "1bc2847",
+      "sha256": "9e1d7a95992108474bac84429b770744e73bef8de2a7ff024be537ff6a3e1a10",
+      "unchanged": true,
+      "lineEndingsNormalized": false
+    },
+    "dist/Sunny_Hillside_Dash.mp3": {
+      "sourceCommit": "301b2bb",
+      "sha256": "6264005642b1c29e4ad816a697a7cd015f0f8be1dbc51b7ef3323e1614af9c62",
+      "unchanged": true,
+      "lineEndingsNormalized": false
+    },
+    "dist/world.js": {
+      "sourceCommit": "301b2bb",
+      "sha256": "6377f0f96bc042da4cbefd1e83d7078ca4d53b697159ff5f8767b6e87d3570b0",
+      "unchanged": true,
+      "lineEndingsNormalized": true
+    }
+  },
+  "clips": {
+    "Idle": {
+      "duration": 3.0333333015441895,
+      "samples": 33,
+      "maxMovement": 0.013147133388773966,
+      "faceDrift": 0.0002887211021644076,
+      "rigidWithin10Micrometres": false,
+      "heldPose": false
+    },
+    "Jump": {
+      "duration": 1.0333333015441895,
+      "samples": 33,
+      "maxMovement": 0,
+      "faceDrift": 0,
+      "rigidWithin10Micrometres": true,
+      "heldPose": true
+    },
+    "Run": {
+      "duration": 0.7666666507720947,
+      "samples": 33,
+      "maxMovement": 0.10288908952528644,
+      "faceDrift": 0.00036536748609011793,
+      "rigidWithin10Micrometres": false,
+      "heldPose": false
+    }
+  },
+  "passed": true,
+  "bones": [
+    "Root",
+    "Hips",
+    "Spine",
+    "Head",
+    "Hair",
+    "Coat",
+    "UpperArmL",
+    "ForearmL",
+    "UpperArmR",
+    "ForearmR",
+    "Cat",
+    "ThighL",
+    "ShinL",
+    "FootL",
+    "ThighR",
+    "ShinR",
+    "FootR"
+  ],
+  "jumpSinglePlayAndRestart": true,
+  "faceSamples": 94,
+  "faceInterpretation": "The sampled front/head region includes hair and inherited blended weights. Report drift, do not claim a rigid new face. Mesh, weights and original clips match 1bc2847 byte-for-byte; recovery introduces no new facial deformation."
+}

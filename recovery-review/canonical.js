@@ -1,22 +1,19 @@
-import * as THREE from './three.module.js';
-import { GLTFLoader } from './GLTFLoader.js';
+import * as THREE from '../dist/three.module.js';
+import { GLTFLoader } from '../dist/GLTFLoader.js';
 
 export function createYui() {
   const root = new THREE.Group();
-  root.name = 'Tsukishiro Yui — Canonical identity recovery';
+  root.name = 'Tsukishiro Yui — Blender model';
   let mixer, model, current, isReady = false, failed = false;
   const actions = {};
   const viewWeights = { value: new THREE.Vector4(1,0,0,0) };
   const localCamera = new THREE.Vector3();
-  const info = { source: 'Canonical identity recovery / unchanged 1bc2847 mesh and paint', asset: 'yui-canonical.glb', identityCommit: '1bc2847', projection: 'historical four-view illustration; oblique seams remain', ready: false, meshes: 0, triangles: 0, bones: 0, clips: [] };
+  const info = { source: 'Original Yui setting / retextured reference mesh', ready: false, meshes: 0, triangles: 0, bones: 0, clips: [] };
   const ready = Promise.all([
-    new GLTFLoader().loadAsync('./yui-canonical.glb?v=8ca10b33'),
-    fetch('./projection.json?v=1bc2847').then(r => { if(!r.ok)throw new Error('Missing character projections');return r.json(); })
+    new GLTFLoader().loadAsync('../dist/yui-canonical.glb?v=10'),
+    fetch('../dist/projection.json').then(r => { if(!r.ok)throw new Error('Missing character projections');return r.json(); })
   ]).then(([gltf, projections]) => {
     model = gltf.scene;
-    for (const name of ['Idle', 'Run', 'Jump']) {
-      if (!gltf.animations.some(clip => clip.name === name)) throw new Error(`Missing canonical clip: ${name}`);
-    }
     const converted=new Map();
     model.traverse(o=>{if(!o.isMesh)return;const convert=m=>{
       if(!m.name.startsWith('Yui illustration |'))return m;
@@ -76,10 +73,6 @@ export function createYui() {
     root.add(model);
     mixer = new THREE.AnimationMixer(model);
     for (const clip of gltf.animations) actions[clip.name] = mixer.clipAction(clip);
-    // Keep the non-artistic playback fixes from 301b2bb. The original skeleton
-    // and animation tracks are preserved; no weights or rest pose are replaced.
-    actions.Jump.setLoop(THREE.LoopOnce, 1);
-    actions.Jump.clampWhenFinished = true;
     info.clips = Object.keys(actions);
     isReady = info.ready = true;
     play('Idle');
@@ -88,9 +81,8 @@ export function createYui() {
   function play(name) {
     const next = actions[name];
     if (!next || current === next) return;
-    const rate = name === 'Jump' ? next.getClip().duration / .78 : 1;
-    next.reset().setEffectiveTimeScale(rate).setEffectiveWeight(1).play();
-    if (current) next.crossFadeFrom(current,.16,false);
+    next.reset().setEffectiveTimeScale(1).setEffectiveWeight(1).play();
+    if (current) next.crossFadeFrom(current,.18,true);
     current = next;info.animation = name;
   }
   return {
@@ -107,7 +99,7 @@ export function createYui() {
     update(dt,time,running,jumping) {
       if(!isReady || failed)return;
       play(jumping ? 'Jump' : running ? 'Run' : 'Idle');
-      mixer.update(Math.min(Math.max(dt, 0), .1));
+      mixer.update(dt);
     }
   };
 }

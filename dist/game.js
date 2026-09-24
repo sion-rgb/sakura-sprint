@@ -1,5 +1,5 @@
 import * as THREE from './three.module.js';
-import {createYui} from './character.js?v=20260918-67934e9e';
+import {createYui} from './character.js?v=20260924-canonical-recovery';
 import {createWorld} from './world.js?v=7';
 
 const $=id=>document.getElementById(id);
@@ -80,8 +80,8 @@ function frame(now){requestAnimationFrame(frame);const dt=Math.min((now-last)/10
     if(o.position.z>14){remove(o);objects.splice(i,1);}
   }
   const narrow=innerWidth<650,lobby=state==='intro';
-  const target=new THREE.Vector3(lobby?(showcase?0:(narrow?0:-.8)):0,lobby?(showcase&&zoom>1?2.72:(showcase?1.35:1.94)):1.45,lobby?0:-3.5);
-  const dest=new THREE.Vector3(lobby?(showcase?.1:(narrow?.1:.85)):0,lobby?(showcase&&zoom>1?2.77:(showcase?2.08:2.45)):(narrow?5.8:5.0),lobby?(showcase?8.1:(narrow?8.3:6.7))/zoom:(narrow?13:10));
+  const target=new THREE.Vector3(lobby?(showcase?0:(narrow?0:-.8)):0,lobby?(showcase&&zoom>1?3.08:(showcase?1.35:1.94)):1.45,lobby?0:-3.5);
+  const dest=new THREE.Vector3(lobby?(showcase?.1:(narrow?.1:.85)):0,lobby?(showcase&&zoom>1?3.14:(showcase?2.08:2.45)):(narrow?5.8:5.0),lobby?(showcase?8.8:(narrow?8.3:6.7))/zoom:(narrow?13:10));
   camera.fov=lobby?42:(narrow?63:48);camera.aspect=innerWidth/innerHeight;camera.updateProjectionMatrix();camera.position.lerp(dest,1-Math.exp(-dt*5));camera.lookAt(target);camera.layers.set(showcase?1:0);
   scene.background.set(showcase?'#292d40':'#303d59');character.updateView(camera);renderer.render(scene,camera);
 }

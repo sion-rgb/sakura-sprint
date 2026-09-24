@@ -1,0 +1,133 @@
+{
+  "canonical": {
+    "file": "yui-canonical.glb",
+    "sha256": "8ca10b33086a49902c923af6842879e5f7fcbb29f667ed4ee63ed4afcd935476",
+    "meshes": [
+      {
+        "name": "geometry_0",
+        "materials": [
+          "Yui illustration | front",
+          "Yui illustration | back",
+          "Yui illustration | side",
+          "Yui illustration | left",
+          "Charcoal leather",
+          "Case edge piping",
+          "Muted silver hardware",
+          "Black cat plush",
+          "Cat eyes",
+          "Cat ivory features",
+          "Cat rose nose"
+        ]
+      }
+    ],
+    "materials": [
+      "Yui illustration | front",
+      "Yui illustration | back",
+      "Yui illustration | side",
+      "Yui illustration | left",
+      "Charcoal leather",
+      "Case edge piping",
+      "Muted silver hardware",
+      "Black cat plush",
+      "Cat eyes",
+      "Cat ivory features",
+      "Cat rose nose"
+    ],
+    "images": [
+      "front",
+      "back",
+      "side",
+      "left"
+    ],
+    "bones": 17,
+    "clips": [
+      "Idle",
+      "Jump",
+      "Run"
+    ]
+  },
+  "rebuilt": {
+    "file": "yui-rebuilt.glb",
+    "sha256": "67934e9e1bb0327707af2c0ddf29f68e5181cff587701bd16d82e7deb21f7113",
+    "meshes": [
+      {
+        "name": "Yui head - continuous jaw and cheek surface",
+        "materials": [
+          "Yui face - painted fixed UV",
+          "Warm porcelain skin",
+          "Silver ivory hair",
+          "Fine silver hair line",
+          "Charcoal silk ribbon",
+          "Raised ribbon fold",
+          "Ivory flower petals",
+          "Antique silver findings",
+          "Midnight charcoal dress",
+          "Warm ivory outer fabric",
+          "Woven charcoal ribbon",
+          "Brushed silver clasps",
+          "Cool grey satin lining",
+          "Lavender embroidered stems",
+          "Ivory thread",
+          "Soft porcelain limbs",
+          "Matte rubber platform",
+          "Soft charcoal boot leather",
+          "Leather seam piping",
+          "Muted antique silver",
+          "Black leather piping",
+          "Rubber feet",
+          "Ash silver embroidery",
+          "Charcoal leather",
+          "Warm ivory applique",
+          "Midnight charcoal plush",
+          "Smoky ear felt",
+          "Embroidered dark pupils",
+          "Dusty pink nose",
+          "Subtle charcoal seam",
+          "Antique silver chain"
+        ]
+      }
+    ],
+    "materials": [
+      "Yui face - painted fixed UV",
+      "Warm porcelain skin",
+      "Silver ivory hair",
+      "Fine silver hair line",
+      "Charcoal silk ribbon",
+      "Raised ribbon fold",
+      "Ivory flower petals",
+      "Antique silver findings",
+      "Midnight charcoal dress",
+      "Warm ivory outer fabric",
+      "Woven charcoal ribbon",
+      "Brushed silver clasps",
+      "Cool grey satin lining",
+      "Lavender embroidered stems",
+      "Ivory thread",
+      "Soft porcelain limbs",
+      "Matte rubber platform",
+      "Soft charcoal boot leather",
+      "Leather seam piping",
+      "Muted antique silver",
+      "Black leather piping",
+      "Rubber feet",
+      "Ash silver embroidery",
+      "Charcoal leather",
+      "Warm ivory applique",
+      "Midnight charcoal plush",
+      "Smoky ear felt",
+      "Embroidered dark pupils",
+      "Dusty pink nose",
+      "Subtle charcoal seam",
+      "Antique silver chain"
+    ],
+    "images": [
+      "Yui-Face-BaseColor-v1"
+    ],
+    "bones": 28,
+    "clips": [
+      "Idle",
+      "Jump",
+      "Run"
+    ]
+  }
+}

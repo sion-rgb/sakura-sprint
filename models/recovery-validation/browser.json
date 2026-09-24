@@ -1,0 +1,126 @@
+{
+  "localPage": "http://127.0.0.1:5173/outputs/yui-identity-recovery/dist/",
+  "frontAndCloseComparedToSetting": true,
+  "canonicalAndRecoveryCompared": true,
+  "runFaceReviewed": true,
+  "knownVisualDefects": [
+    "Inherited neck/cheek gaps",
+    "Inherited oblique projection seams"
+  ],
+  "pauseCheck": {
+    "character": "月白結",
+    "coins": 0,
+    "demo": false,
+    "distance": 0,
+    "environment": "月下花徑",
+    "lane": 0,
+    "model": {
+      "animation": "Idle",
+      "asset": "yui-canonical.glb",
+      "bones": 17,
+      "clips": [
+        "Idle",
+        "Jump",
+        "Run"
+      ],
+      "identityCommit": "1bc2847",
+      "meshes": 11,
+      "projection": "historical four-view illustration; oblique seams remain",
+      "ready": true,
+      "source": "Canonical identity recovery / unchanged 1bc2847 mesh and paint",
+      "triangles": 135052
+    },
+    "music": {
+      "duration": 175.255458,
+      "muted": true,
+      "playing": false,
+      "time": 16.829377,
+      "title": "Sunny Hillside Dash"
+    },
+    "obstacles": 0,
+    "orbit": 0,
+    "showcase": false,
+    "speed": 12,
+    "state": "paused",
+    "y": 0,
+    "zoom": 1
+  },
+  "resumeCheck": {
+    "character": "月白結",
+    "coins": 0,
+    "demo": false,
+    "distance": 0.1607999999821186,
+    "environment": "月下花徑",
+    "lane": 0,
+    "model": {
+      "animation": "Run",
+      "asset": "yui-canonical.glb",
+      "bones": 17,
+      "clips": [
+        "Idle",
+        "Jump",
+        "Run"
+      ],
+      "identityCommit": "1bc2847",
+      "meshes": 11,
+      "projection": "historical four-view illustration; oblique seams remain",
+      "ready": true,
+      "source": "Canonical identity recovery / unchanged 1bc2847 mesh and paint",
+      "triangles": 135052
+    },
+    "music": {
+      "duration": 175.255458,
+      "muted": true,
+      "playing": false,
+      "time": 16.829377,
+      "title": "Sunny Hillside Dash"
+    },
+    "obstacles": 5,
+    "orbit": 0,
+    "showcase": false,
+    "speed": 12.000699130434706,
+    "state": "running",
+    "y": 0,
+    "zoom": 1
+  },
+  "landingState": {
+    "character": "月白結",
+    "coins": 8,
+    "demo": false,
+    "distance": 177.44634751153654,
+    "environment": "月下花徑",
+    "lane": 0,
+    "model": {
+      "animation": "Idle",
+      "asset": "yui-canonical.glb",
+      "bones": 17,
+      "clips": [
+        "Idle",
+        "Jump",
+        "Run"
+      ],
+      "identityCommit": "1bc2847",
+      "meshes": 11,
+      "projection": "historical four-view illustration; oblique seams remain",
+      "ready": true,
+      "source": "Canonical identity recovery / unchanged 1bc2847 mesh and paint",
+      "triangles": 135052
+    },
+    "music": {
+      "duration": 175.255458,
+      "muted": true,
+      "playing": false,
+      "time": 16.829377,
+      "title": "Sunny Hillside Dash"
+    },
+    "obstacles": 25,
+    "orbit": 0,
+    "showcase": false,
+    "speed": 12.771505858745812,
+    "state": "over",
+    "y": 0,
+    "zoom": 1
+  },
+  "console": [],
+  "published": false
+}

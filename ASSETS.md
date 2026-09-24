@@ -1,16 +1,12 @@
-# 素材與製作記錄
+# 素材與回復記錄
 
-- 角色設定：專案持有人提供的「月白結 / Tsukishiro Yui」原始設定圖，作為唯一角色設計基準。
-- 角色模型：在 Blender 5.1 重建連續臉部、分層髮束、寬鬆外套、裙裝、四肢、鞋履、鞋帶與扣飾。早期生成網格曾用作過程參考；新版發布模型已移除其身體與靴子網格。
-- 臉部貼圖：使用 OpenAI 內建影像生成，依據原設定製作平面五官彩繪，再映射至固定 UV。沒有隨鏡頭方向改變的投影。
-- 袖口、花枝及花飾：建模的幾何細節。此次額外刺繡圖片生成因用量限制未產生結果，發布版沒有使用該張不存在的貼圖。
-- 琴盒及黑貓：獨立建模配件，隨角色骨架移動。
-- 動畫：28 根骨骼，Idle / Run / Jump；腿部使用兩段式膝關節求解，頭髮、衣襬及吊飾有獨立控制。
-- 背景音樂：專案持有人提供的 `Sunny_Hillside_Dash.mp3`，175.26 秒；原音訊完整保留。
-- 環境：程式建立的櫻花、水道、建築、欄杆、石板路、路燈與粒子。
-- Three.js、GLTFLoader、BufferGeometryUtils：r170，MIT 授權，全文見 `dist/THREE-LICENSE.txt`。
-- 字體：Google Fonts 的 Noto Sans TC 與 Noto Serif TC；無法連線時使用系統字體。
+- 唯一角色設定基準：使用者提供的「月白結 / Tsukishiro Yui」設定圖，`dist/yui-setting.png`。
+- 啟用模型：從 `1bc2847` 原封不動回復 `dist/yui-canonical.glb` 及 `models/Yui-Canonical.blend`。原始幾何來自使用者提供的 `partpacker_20260913_171952.glb`，已於舊版減面、蒙皮及加入配件。
+- 外觀：重用舊版嵌入的 `front`、`back`、`side`、`left` 四張插畫投影圖及原投影參數；此次沒有生成、重畫或解讀一張新臉。
+- 動作：保留 Canonical 的 17 骨、Idle / Run / Jump 原始資料。Jump 是固定空中姿勢。控制器保留單次跳躍、重新起跳、過渡及時間步長保護。
+- 備份：`yui-rebuilt.glb` 與 `Yui-Rebuilt.blend` 維持 `301b2bb` 的內容。其程序化頭部及 `Yui-Face-BaseColor-v1` 生成臉部貼圖不再用於本分支遊戲。
+- 已知限制：Canonical 的投影斜角接縫、頸部缺口及小幅跑步仍存在。美術身份回復與完整模型修復是不同驗收結果。
+- 場景及音樂：保留原程式環境和使用者提供的 `Sunny_Hillside_Dash.mp3`。
+- Three.js、GLTFLoader、BufferGeometryUtils：r170，MIT，見 `dist/THREE-LICENSE.txt`。
 
-角色外觀仍比設定圖簡化，尤其是髮束、衣褶與刺繡的精細程度。模型檢查通過不等同於美術還原度獲得認可。
-
-提供的角色美術與音樂保留其原有權利；本專案未另外替這些素材授予開源授權。
+角色美術及音樂保留原有權利；本專案未另行授予這些素材開源授權。

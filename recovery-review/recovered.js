@@ -1,5 +1,5 @@
-import * as THREE from './three.module.js';
-import { GLTFLoader } from './GLTFLoader.js';
+import * as THREE from '../dist/three.module.js';
+import { GLTFLoader } from '../dist/GLTFLoader.js';
 
 export function createYui() {
   const root = new THREE.Group();
@@ -10,8 +10,8 @@ export function createYui() {
   const localCamera = new THREE.Vector3();
   const info = { source: 'Canonical identity recovery / unchanged 1bc2847 mesh and paint', asset: 'yui-canonical.glb', identityCommit: '1bc2847', projection: 'historical four-view illustration; oblique seams remain', ready: false, meshes: 0, triangles: 0, bones: 0, clips: [] };
   const ready = Promise.all([
-    new GLTFLoader().loadAsync('./yui-canonical.glb?v=8ca10b33'),
-    fetch('./projection.json?v=1bc2847').then(r => { if(!r.ok)throw new Error('Missing character projections');return r.json(); })
+    new GLTFLoader().loadAsync('../dist/yui-canonical.glb?v=8ca10b33'),
+    fetch('../dist/projection.json?v=1bc2847').then(r => { if(!r.ok)throw new Error('Missing character projections');return r.json(); })
   ]).then(([gltf, projections]) => {
     model = gltf.scene;
     for (const name of ['Idle', 'Run', 'Jump']) {
