@@ -2,3 +2,7 @@
 Thumbs.db
 *.blend1
 *.log
+models/Yui-Selected-Source.blend
+models/Yui-Selected-Eye-Study.blend
+selected-review/leg-regions.npz
+__pycache__/

@@ -1,0 +1,218 @@
+{
+  "date": "2026-09-25",
+  "url": "http://127.0.0.1:5173/outputs/yui-selected-base/dist/",
+  "baseAssetSha256": "3f6ff47b618c04c8282a20702d323f5fa4f1eec6ac55bed9c188bab606c6a2b2",
+  "detailAssetSha256": "8b391270ac38191884268f9940783b7f9c82d54770481a7c0ee5ab5bf1f4a5c3",
+  "loaded": {
+    "character": "月白結",
+    "coins": 0,
+    "demo": false,
+    "distance": 0,
+    "environment": "月下花徑",
+    "lane": 0,
+    "model": {
+      "animation": "Idle",
+      "asset": "yui-selected.glb",
+      "bones": 17,
+      "clips": [
+        "Idle",
+        "Jump",
+        "Run"
+      ],
+      "eyeDetail": "original setting sheet / separate fixed-UV eyes and mouth line",
+      "faceReplaced": false,
+      "meshes": 18,
+      "ready": true,
+      "source": "User-selected historical 3D surface / preserved original mesh and UV",
+      "triangles": 1031600
+    },
+    "music": {
+      "duration": 175.255458,
+      "muted": false,
+      "playing": false,
+      "time": 0,
+      "title": "Sunny Hillside Dash"
+    },
+    "obstacles": 0,
+    "orbit": 0,
+    "showcase": false,
+    "speed": 12,
+    "state": "intro",
+    "y": 0,
+    "zoom": 1
+  },
+  "runDemo": {
+    "character": "月白結",
+    "coins": 0,
+    "demo": true,
+    "distance": 0,
+    "environment": "月下花徑",
+    "lane": 0,
+    "model": {
+      "animation": "Run",
+      "asset": "yui-selected.glb",
+      "bones": 17,
+      "clips": [
+        "Idle",
+        "Jump",
+        "Run"
+      ],
+      "eyeDetail": "original setting sheet / separate fixed-UV eyes and mouth line",
+      "faceReplaced": false,
+      "meshes": 18,
+      "ready": true,
+      "source": "User-selected historical 3D surface / preserved original mesh and UV",
+      "triangles": 1031600
+    },
+    "music": {
+      "duration": 175.255458,
+      "muted": false,
+      "playing": false,
+      "time": 0,
+      "title": "Sunny Hillside Dash"
+    },
+    "obstacles": 0,
+    "orbit": 1.5707963267948966,
+    "showcase": true,
+    "speed": 12,
+    "state": "intro",
+    "y": 0,
+    "zoom": 3
+  },
+  "jump": {
+    "character": "月白結",
+    "coins": 0,
+    "demo": false,
+    "distance": 1.1785802915780963,
+    "environment": "月下花徑",
+    "lane": 1,
+    "model": {
+      "animation": "Jump",
+      "asset": "yui-selected.glb",
+      "bones": 17,
+      "clips": [
+        "Idle",
+        "Jump",
+        "Run"
+      ],
+      "eyeDetail": "original setting sheet / separate fixed-UV eyes and mouth line",
+      "faceReplaced": false,
+      "meshes": 18,
+      "ready": true,
+      "source": "User-selected historical 3D surface / preserved original mesh and UV",
+      "triangles": 1031600
+    },
+    "music": {
+      "duration": 175.255458,
+      "muted": false,
+      "playing": true,
+      "time": 0,
+      "title": "Sunny Hillside Dash"
+    },
+    "obstacles": 5,
+    "orbit": 0,
+    "showcase": false,
+    "speed": 12.005124262137295,
+    "state": "running",
+    "y": 0.43977142000012265,
+    "zoom": 1
+  },
+  "afterRun": {
+    "character": "月白結",
+    "coins": 0,
+    "demo": false,
+    "distance": 94.48993837350132,
+    "environment": "月下花徑",
+    "lane": 1,
+    "model": {
+      "animation": "Idle",
+      "asset": "yui-selected.glb",
+      "bones": 17,
+      "clips": [
+        "Idle",
+        "Jump",
+        "Run"
+      ],
+      "eyeDetail": "original setting sheet / separate fixed-UV eyes and mouth line",
+      "faceReplaced": false,
+      "meshes": 18,
+      "ready": true,
+      "source": "User-selected historical 3D surface / preserved original mesh and UV",
+      "triangles": 1031600
+    },
+    "music": {
+      "duration": 175.255458,
+      "muted": false,
+      "playing": true,
+      "time": 16.332605,
+      "title": "Sunny Hillside Dash"
+    },
+    "obstacles": 25,
+    "orbit": 0,
+    "showcase": false,
+    "speed": 12.410825819015225,
+    "state": "over",
+    "y": 0,
+    "zoom": 1
+  },
+  "originalDetailDisabled": {
+    "character": "月白結",
+    "coins": 0,
+    "demo": false,
+    "distance": 0,
+    "environment": "月下花徑",
+    "lane": 0,
+    "model": {
+      "animation": "Idle",
+      "asset": "yui-selected.glb",
+      "bones": 17,
+      "clips": [
+        "Idle",
+        "Jump",
+        "Run"
+      ],
+      "eyeDetail": "original",
+      "faceReplaced": false,
+      "meshes": 15,
+      "ready": true,
+      "source": "User-selected historical 3D surface / preserved original mesh and UV",
+      "triangles": 1029872
+    },
+    "music": {
+      "duration": 175.255458,
+      "muted": false,
+      "playing": false,
+      "time": 0,
+      "title": "Sunny Hillside Dash"
+    },
+    "obstacles": 0,
+    "orbit": 0,
+    "showcase": false,
+    "speed": 12,
+    "state": "intro",
+    "y": 0,
+    "zoom": 1
+  },
+  "consoleErrorsAndWarnings": [],
+  "observed": {
+    "webglRendered": true,
+    "frontAndCloseupComparedToSelectedHistoryAndSetting": true,
+    "sideAndRunViewsChecked": true,
+    "jumpObserved": true,
+    "rightLaneObserved": true,
+    "leftLanePauseResumeObservedInPreviousBaselineSession": true,
+    "musicPlaybackStateObserved": true,
+    "originalDetailSwitchVerified": true
+  },
+  "artisticFidelity": "PARTIAL: selected surface preserved; additive original-reference eyes and mouth line are readable; sculpt detail and illustration-level expression remain unfinished",
+  "performance": "No mobile device or frame-rate acceptance claim",
+  "screenshots": [
+    "review-front-comparison.png",
+    "review-face-comparison.png",
+    "browser-eye-detail-face.png",
+    "browser-detail-side.png",
+    "browser-detail-jump.png",
+    "browser-run-front.png",
+    "browser-run-side.png"
+  ]
+}

@@ -7,10 +7,22 @@ export function createYui() {
   root.name = 'Tsukishiro Yui';
   let mixer, current;
   const actions = {};
-  const info = { source: 'Canonical design / fixed UV mesh', ready: false,
+  const info = { source: 'User-selected historical 3D surface / preserved original mesh and UV', asset: 'yui-selected.glb', faceReplaced: false, ready: false,
     meshes: 0, triangles: 0, bones: 0, clips: [] };
-  const ready = new GLTFLoader().loadAsync('./yui-rebuilt.glb?v=20260918-67934e9e').then(gltf => {
+  const ready = new GLTFLoader().loadAsync('./yui-selected.glb?v=selected-3f6ff47b61-8b391270').then(async gltf => {
     const model = gltf.scene;
+    // Add only the setting sheet's eyes and short mouth line to the original head. The source
+    // character, face geometry and original UVs remain untouched and recoverable.
+    info.eyeDetail = 'original';
+    if (new URLSearchParams(location.search).get('eyes') !== 'original') {
+      const eye = await new GLTFLoader().loadAsync('./yui-eye-detail.glb?v=reference-8b391270ac');
+      const head = model.getObjectByName('Head');
+      if (!head?.isBone) throw new Error('Original head attachment bone missing');
+      model.add(eye.scene);
+      model.updateMatrixWorld(true);
+      head.attach(eye.scene);
+      info.eyeDetail = 'original setting sheet / separate fixed-UV eyes and mouth line';
+    }
     const clipNames = gltf.animations.map(clip => clip.name);
     for (const name of ['Idle', 'Run', 'Jump']) {
       if (!clipNames.includes(name)) throw new Error(`Incomplete character animation: ${name}`);
