@@ -1,0 +1,22 @@
+<!doctype html>
+<html lang="zh-Hant"><meta charset="utf-8"><meta name="viewport" content="width=device-width,initial-scale=1"><title>月白結 · 歷史模型修復比較</title>
+<style>*{box-sizing:border-box}body{margin:0;background:#222735;color:#eef0f5;font:15px system-ui}header,#notes{padding:20px}h1{font-size:22px;margin:0 0 10px}p{line-height:1.6}nav{display:flex;flex-wrap:wrap;gap:8px}button,a{padding:9px 14px;color:#eef0f5;background:#3d4559;border:1px solid #646d83;border-radius:5px;font:inherit;text-decoration:none;cursor:pointer}button[aria-pressed=true]{background:#eee6df;color:#242733}main{display:grid;grid-template-columns:repeat(3,1fr);gap:12px;padding:12px}article{min-width:0;background:#303544}h2{font-size:15px;padding:12px;margin:0;min-height:64px}article img{width:100%;display:block}.reference-crop{position:relative;aspect-ratio:1.15;overflow:hidden}.reference-crop img{position:absolute;width:630%;max-width:none;left:-412.1%;top:-20.1%}dialog{width:min(96vw,950px);padding:12px;border:0}dialog img{width:100%}@media(max-width:750px){main{grid-template-columns:1fr}article img{max-height:70vh;object-fit:contain}.reference-crop img{max-height:none}}</style>
+<header><h1>以你選中的第二張歷史模型為基準</h1><p>原臉、髮型、身形及服裝網格保留；另加適配骨架、琴盒和黑貓。局部細修僅取用原設定圖的眼睛與嘴線。</p><nav><button data-view="front" aria-pressed="true">正面</button><button data-view="detail">五官細節對照</button><button data-view="side">側面</button><button data-view="run">跑姿</button><button id="setting">完整原設定圖</button><a href="../dist/">遊戲中檢查 ↗</a><a href="../dist/?eyes=original">原五官對照 ↗</a></nav></header>
+<main><article><h2 id="title-source">你選中的歷史截圖（像素完全相同）</h2><img id="source" src="selected-historical-front.png" alt="User-selected historical model"></article><article><h2 id="title-a">修復候選版 · 正面</h2><img id="a" src="detail-front.png" alt="Candidate render"></article><article><h2 id="title-b">唯一角色設定基準</h2><div id="b-wrap"><img id="b" src="../dist/yui-setting.png" alt="Authoritative setting sheet"></div></article></main>
+<div id="notes"><p id="caption">原角色表面、原 UV 及原貼圖不變。琴盒、黑貓、骨架和局部五官補層均可分開處理。</p><p>這是可回復的修復候選版。已對照正面、近鏡及側面；角色本身的雕塑與貼圖仍有粗糙處，未宣稱完全達到設定圖精緻度。正式網站尚未改版。</p><p><a href="browser-eye-detail-face.png">WebGL 近鏡記錄</a> <a href="browser-jump.png">實際跳躍記錄</a></p></div>
+<dialog><button id="close">關閉設定圖</button><img src="../dist/yui-setting.png" alt="Authoritative Yui setting sheet"></dialog>
+<script>
+const views={
+ front:{src:'selected-historical-front.png',a:'detail-front.png',b:'../dist/yui-setting.png',titles:['你選中的歷史截圖（像素完全相同）','修復候選版 · 正面','唯一角色設定基準'],caption:'原角色表面、原 UV 及原貼圖不變。琴盒、黑貓、骨架和局部五官補層均可分開處理。'},
+ detail:{src:'face.png',a:'eye-study-full-front.png',b:'../dist/yui-setting.png',crop:true,titles:['原模型近鏡 · 原眼部及嘴線','原頭部 + 設定圖局部細節','原設定「平常」表情 · 直接取樣來源'],caption:'僅增加貼合原眼窩與嘴部的小面片，使用設定圖原像素。沒有生成新臉、改動原頭形或原 UV。補層跟隨原 Head 骨；亦提供完全關閉補層的遊戲入口。'},
+ side:{src:'side.png',a:'eye-study-full-quarter.png',b:'back.png',titles:['原表面與附件 · 側面','局部細修 · 斜側近鏡','原表面與附件 · 背面'],caption:'原生 3D 表面及固定 UV；沒有随鏡頭切換的 Canonical 投影。'},
+ run:{src:'selected-historical-front.png',a:'run-front.png',b:'run-side.png',titles:['歷史靜態原模型','適配骨架 · 跑姿正面','適配骨架 · 跑姿側面'],caption:'此組骨架檢查渲染未疊加後續五官補層。連通腿部與衣髮分區配重；原頭部保持剛性。'}
+};
+document.querySelectorAll('[data-view]').forEach(button=>button.onclick=()=>{
+ const v=views[button.dataset.view];document.querySelector('#source').src=v.src;document.querySelector('#a').src=v.a;document.querySelector('#b').src=v.b;
+ ['title-source','title-a','title-b'].forEach((id,i)=>document.getElementById(id).textContent=v.titles[i]);
+ document.querySelector('#b-wrap').className=v.crop?'reference-crop':'';document.querySelector('#caption').textContent=v.caption;
+ document.querySelectorAll('[data-view]').forEach(b=>b.setAttribute('aria-pressed',String(b===button)));
+});
+document.querySelector('#setting').onclick=()=>document.querySelector('dialog').showModal();document.querySelector('#close').onclick=()=>document.querySelector('dialog').close();
+</script></html>

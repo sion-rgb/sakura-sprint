@@ -1,0 +1,37 @@
+{
+  "sourceSha256": "f73c2e1d6b009ac5fdbb53f6a623a81485d16c3b8517b15378ef4e9051567d18",
+  "candidateSha256": "3f6ff47b618c04c8282a20702d323f5fa4f1eec6ac55bed9c188bab606c6a2b2",
+  "eyeDetailSha256": "8b391270ac38191884268f9940783b7f9c82d54770481a7c0ee5ab5bf1f4a5c3",
+  "eyeSourceImageUnchanged": true,
+  "embeddedOriginalImagesUnchanged": true,
+  "bones": 17,
+  "sourceFaceReplaced": false,
+  "clips": {
+    "Idle": {
+      "duration": 2.4000000953674316,
+      "samples": 33,
+      "maxFaceDrift": 0,
+      "maxEyeAttachmentDrift": 0,
+      "minFootY": 3.6075678177099404e-8,
+      "maxLift": 0.0038454363130859875
+    },
+    "Jump": {
+      "duration": 0.7666666507720947,
+      "samples": 33,
+      "maxFaceDrift": 0,
+      "maxEyeAttachmentDrift": 0,
+      "minFootY": 3.6075678177099404e-8,
+      "maxLift": 0.01001886785182694
+    },
+    "Run": {
+      "duration": 0.8666666746139526,
+      "samples": 33,
+      "maxFaceDrift": 0,
+      "maxEyeAttachmentDrift": 0,
+      "minFootY": 0.0028904093891379806,
+      "maxLift": 0.09302895200120614
+    }
+  },
+  "browserRenderingTested": false,
+  "passed": true
+}

@@ -1,53 +1,48 @@
 # 月白花徑 · Sakura Sprint
 
-和月白結一起跑過月光、櫻花、水面倒影與旋律交織的 3D 花徑。
+本分支恢復使用者指定的歷史模型，保留原臉、髮型、身形、服裝表面及原貼圖，另加骨架、琴盒與黑貓。
 
-**[直接遊玩](https://sion-rgb.github.io/sakura-sprint/)**
+**獨立修復候選版。正式網站仍是 main；神情與美術還原度尚未完成驗收。**
 
-## 遊玩
+使用者選中的第二張截圖與歷史 `Generated-Review/view-180.png` 解碼像素完全一致，原模型為 `Yui-Generated-Unreviewed.glb`。Unreviewed 是歷史檔名；現在選用它依照使用者的明確指定。
 
-- 左右方向鍵 / A、D：轉換跑道。
-- 空白鍵 / 上方向鍵 / W：跳躍。
-- Esc / P：暫停及繼續。
-- 手機可滑動或使用畫面下方按鈕。
-- 音樂按鈕控制背景音樂與音效；開始旅程後播放《Sunny Hillside Dash》，循環播放並記住靜音選擇。
-- 「細看月白結」可旋轉角色、查看臉部特寫及示範跑步。
+![原模型加裝配件及骨架](selected-review/front.png)
 
-## 2026-09-18 角色重建
+## 本機檢視
 
-以提供的月白結設定圖作為設計基準，重建五官、分層銀白長髮、髮飾、白色寬袖外套、黑裙、腿飾及厚底短靴，保留獨立琴盒與黑貓吊飾。袖面花枝、袖口褶邊、鞋帶和扣飾使用實際幾何結構。
+在此分支目錄執行 `python -m http.server 5173`：
 
-已移除會隨鏡頭切換的插畫投影。臉部使用固定 UV，衣服與四肢使用分區權重，配有 28 根骨骼與 Idle、Run、Jump 三段動作。跳躍動作配合遊戲的起跳與落地時間；角色展示使用獨立柔光。
+- `http://localhost:5173/selected-review/`：歷史截圖、正面、近鏡、側面、跑姿與原設定圖。
+- `http://localhost:5173/dist/`：遊戲及角色展示，含獨立眼部細修。
+- `http://localhost:5173/dist/?eyes=original`：同一骨架及配件，關閉眼部細修，對照原模型。
 
-這是簡化的遊戲重建版。髮束、衣褶、刺繡密度及神情仍未達到原設定圖的精緻程度，並非逐項完整還原或商用角色品質。
+方向鍵 / A、D 換道；空白鍵 / W 起跳；P / Esc 暫停；觸控按鈕亦可操作。音樂按鈕控制使用者提供的《Sunny Hillside Dash》。
 
-![新版模型正面](models/Yui-Rebuilt-preview.png)
+## 保留與修改
 
-場景包含櫻花樹、月光水道、鐵欄、暖色路燈、石板路、遠景建築、花瓣與音符；原背景音樂完整保留。
+- 原表面 838,905 頂點、1,013,358 三角面；位置與 UV 雜湊前後一致。
+- 原 GLB 兩張內嵌影像在新匯出檔內逐位元相同。
+- 17 根適配骨骼及 Idle / Run / Jump；連通腿部表面與衣髮分開配重。
+- 琴盒、背帶、黑貓均為獨立附件。
+- 五官細修是獨立 `yui-eye-detail.glb`，只使用原設定圖的眼睛與短嘴線像素，固定 UV，貼合原眼窩及嘴部並掛於原 Head 骨。沒有重新生成五官、替換頭部或改動原眼形網格。
+- 場景、遊戲規則、音樂及舊 Rebuilt 資產保留。
 
-## 驗證
+## 驗證與限制
 
-- 匯出 GLB：固定 UV、骨骼權重、三段動畫、循環接合與雙腳離地高度檢查。
-- Three.js r170：每段動作取 33 個時點檢查蒙皮；臉部 UV 與比例保持不變。
-- 實際瀏覽器：確認載入、正側面與近鏡、跑步展示、左右換道、跳躍、暫停與恢復、音符收集、碰撞結束及背景音樂狀態；測試期間未記錄到 console error / warning。
-- 匯出模型 370,002 三角面、31 個材質圖元、約 16.6 MB。未聲稱手機實機流暢度或固定幀率通過測試。
+`node validate-selected.mjs` 使用專案 Three.js r170，對每段動作取 33 個時間點，核對原影像、固定 UV、臉部剛性和腳底高度。瀏覽器實測另存於 `selected-review/browser-validation.json`，不以 CPU 測試替代 WebGL 驗證。
 
-## 本機啟動
+渲染證據見 `selected-review/`。基礎候選 GLB 約 66.8 MB、含附件 1,029,872 三角面；局部五官補層另增 1,728 三角面。沒有宣稱手機實機或固定幀率驗收通過。
 
-需要 Python 3。於專案目錄執行：
+原模型仍有粗糙的局部雕塑和貼圖細節。眼部局部補層可辨认瞳孔，但不代表神情、髮絲及插畫精緻度完全等同於設定圖。完整美術任務仍為 **PARTIAL**。
 
-```sh
-python -m http.server 5173 --directory dist
-```
+## 可編輯來源及重建
 
-開啟 `http://localhost:5173`。遊戲無需建置或 API 金鑰。
+- `models/Yui-Selected-Source.glb`：逐位元保存的歷史原模型。
+- `models/Yui-Selected-Rigged.blend`：封裝貼圖、適配骨架及配件的 Blender 5.1.2 原檔。
+- `dist/yui-selected.glb`：原表面加骨架與附件。
+- `dist/yui-eye-detail.glb`：可獨立移除的眼睛與短嘴線補層。
+- `SELECTED-BASE.md`：來源及回歸記錄。
 
-## 檔案
+Blender 5.1.2 背景模式依序執行 `inspect-selected.py`、`segment-selected.py`、`build-selected.py`、`study-eye-detail.py`；再用 Python 執行 `stage-selected.py` 更新資產雜湊與快取版本，最後執行 Node 驗證。來源與附件均在本分支內。來源 Blend、分區暫存及眼部研究 Blend 可重建，不納入 Git。
 
-- `dist/`：完整遊戲與 Three.js r170 模組。
-- `dist/yui-rebuilt.glb`：含材質、固定 UV、骨架與三段動畫的網頁模型。
-- `models/Yui-Rebuilt.blend`：已封裝貼圖的 Blender 5.1 可編輯原檔。
-- `models/validation/`：模型與動畫檢查記錄。
-- `ASSETS.md`：素材來源與製作說明。
-
-GitHub Actions 將 `dist/` 發佈至 GitHub Pages。
+正式 Pages 由 main 的 GitHub Actions 發布。本修復分支不等同於正式部署。

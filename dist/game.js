@@ -1,5 +1,5 @@
 import * as THREE from './three.module.js';
-import {createYui} from './character.js?v=20260918-67934e9e';
+import {createYui} from './character.js?v=selected-3f6ff47b61-8b391270';
 import {createWorld} from './world.js?v=7';
 
 const $=id=>document.getElementById(id);

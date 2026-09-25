@@ -1,0 +1,9 @@
+{
+  "candidate_sha256": "3f6ff47b618c04c8282a20702d323f5fa4f1eec6ac55bed9c188bab606c6a2b2",
+  "reference_detail_sha256": "8b391270ac38191884268f9940783b7f9c82d54770481a7c0ee5ab5bf1f4a5c3",
+  "historical_source": "Yui-Generated-Unreviewed.glb",
+  "source_sha256": "f73c2e1d6b009ac5fdbb53f6a623a81485d16c3b8517b15378ef4e9051567d18",
+  "matched_screenshot": "Generated-Review/view-180.png",
+  "screenshot_rgba_sha256": "833bc6cd9319fda4affe1c8f83944275df15b88a9631f9618b3688e22691a0af",
+  "face_regenerated": false
+}
