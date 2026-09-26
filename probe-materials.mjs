@@ -1,0 +1,22 @@
+import fs from 'node:fs';
+import * as THREE from './dist/three.module.js';
+import { GLTFLoader } from './dist/GLTFLoader.js';
+import { createRequire } from 'node:module';
+const require=createRequire(import.meta.url);
+const {PNG}=require(process.env.PNG_MODULE || 'pngjs');
+const bytes=fs.readFileSync(new URL('dist/yui-selected.glb',import.meta.url));
+const len=bytes.readUInt32LE(12),g=JSON.parse(bytes.subarray(20,20+len)),bin=bytes.subarray(28+len);
+const images=g.images.map(i=>{const v=g.bufferViews[i.bufferView];return PNG.sync.read(bin.subarray(v.byteOffset,bin.indexOf(Buffer.from([73,69,78,68]),v.byteOffset)+8));});
+const loader=new GLTFLoader();loader.register(()=>({name:'CPU',loadTexture:()=>Promise.resolve(new THREE.Texture())}));
+const asset=await loader.parseAsync(bytes.buffer.slice(bytes.byteOffset,bytes.byteOffset+bytes.byteLength),'');
+asset.scene.updateMatrixWorld(true);
+let body;asset.scene.traverse(o=>{if(o.isSkinnedMesh&&o.name.startsWith('Yui_Selected_Original_Surface'))body=o});body.skeleton.update();
+const ray=new THREE.Raycaster();
+function sample(name,x,y){ray.set(new THREE.Vector3(x,y,2),new THREE.Vector3(0,0,-1));const hit=ray.intersectObject(body)[0];if(!hit)return null;
+ const colors=images.map(i=>{const px=Math.min(i.width-1,Math.floor(hit.uv.x*i.width)),py=Math.min(i.height-1,Math.floor(hit.uv.y*i.height));return Array.from(i.data.subarray((py*i.width+px)*4,(py*i.width+px)*4+4));});
+ return {name,point:hit.point.toArray(),uv:hit.uv.toArray(),base:colors[0],pbr:colors[1]};}
+const bounds=[];asset.scene.traverse(o=>{if(o.isMesh){o.geometry.computeBoundingBox();bounds.push({name:o.name,bounds:[o.geometry.boundingBox.min.toArray(),o.geometry.boundingBox.max.toArray()]})}});console.log(JSON.stringify(bounds));
+const samples=[sample('nose',-.0075,1.389),sample('skinL',-.022,1.388),sample('skinR',.012,1.388),sample('chin',-.006,1.335),sample('hair',0,1.5),sample('jacket',.25,1.05),sample('skirt',0,.90)];
+fs.mkdirSync(new URL('repair-review',import.meta.url),{recursive:true});
+fs.writeFileSync(new URL('repair-review/material-probe.json',import.meta.url),JSON.stringify(samples,null,2));
+console.log(JSON.stringify(samples,null,2));

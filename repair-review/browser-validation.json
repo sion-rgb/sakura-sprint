@@ -1,0 +1,159 @@
+{
+  "date": "2026-09-26T07:48:20.010Z",
+  "url": "http://127.0.0.1:5173/outputs/yui-detail-repair/",
+  "checks": {
+    "actualRenderedChange": {
+      "width": 416,
+      "height": 555,
+      "changed": 131,
+      "box": [
+        200,
+        302,
+        210,
+        318
+      ],
+      "equalCanvasSize": true
+    },
+    "sameAssetComparison": [
+      {
+        "source": "User-selected historical 3D surface / preserved original mesh and UV",
+        "asset": "yui-selected.glb",
+        "faceReplaced": false,
+        "ready": true,
+        "meshes": 18,
+        "triangles": 1031600,
+        "bones": 17,
+        "clips": [
+          "Idle",
+          "Jump",
+          "Run"
+        ],
+        "eyeDetail": "original setting sheet / separate fixed-UV eyes and mouth line",
+        "faceDetail": "published",
+        "animation": "Run"
+      },
+      {
+        "source": "User-selected historical 3D surface / preserved original mesh and UV",
+        "asset": "yui-selected.glb",
+        "faceReplaced": false,
+        "ready": true,
+        "meshes": 18,
+        "triangles": 1031600,
+        "bones": 17,
+        "clips": [
+          "Idle",
+          "Jump",
+          "Run"
+        ],
+        "eyeDetail": "original setting sheet / separate fixed-UV eyes and mouth line",
+        "faceDetail": "local nose colour / original cheek samples / fixed rest-space mask",
+        "animation": "Run"
+      }
+    ],
+    "mobileControls": {
+      "controls": {
+        "x": 11.703125,
+        "y": 662,
+        "width": 366.59375,
+        "height": 142,
+        "top": 662,
+        "right": 378.296875,
+        "bottom": 804,
+        "left": 11.703125
+      },
+      "buttons": [
+        {
+          "x": 53.5,
+          "y": 701,
+          "width": 40,
+          "height": 33,
+          "top": 701,
+          "right": 93.5,
+          "bottom": 734,
+          "left": 53.5
+        },
+        {
+          "x": 98.5,
+          "y": 701,
+          "width": 40,
+          "height": 33,
+          "top": 701,
+          "right": 138.5,
+          "bottom": 734,
+          "left": 98.5
+        },
+        {
+          "x": 143.5,
+          "y": 701,
+          "width": 40,
+          "height": 33,
+          "top": 701,
+          "right": 183.5,
+          "bottom": 734,
+          "left": 143.5
+        },
+        {
+          "x": 188.5,
+          "y": 701,
+          "width": 40,
+          "height": 33,
+          "top": 701,
+          "right": 228.5,
+          "bottom": 734,
+          "left": 188.5
+        },
+        {
+          "x": 233.5,
+          "y": 701,
+          "width": 40,
+          "height": 33,
+          "top": 701,
+          "right": 273.5,
+          "bottom": 734,
+          "left": 233.5
+        },
+        {
+          "x": 278.5,
+          "y": 701,
+          "width": 58,
+          "height": 33,
+          "top": 701,
+          "right": 336.5,
+          "bottom": 734,
+          "left": 278.5
+        },
+        {
+          "x": 160.484375,
+          "y": 771,
+          "width": 69.03125,
+          "height": 33,
+          "top": 771,
+          "right": 229.515625,
+          "bottom": 804,
+          "left": 160.484375
+        }
+      ],
+      "scroll": 390,
+      "width": 390
+    },
+    "landscapeControls": {
+      "x": 606,
+      "y": 155,
+      "width": 220,
+      "height": 217,
+      "top": 155,
+      "right": 826,
+      "bottom": 372,
+      "left": 606
+    },
+    "jumpLanePauseResume": true,
+    "musicPlaying": true,
+    "repairOffSwitch": true,
+    "optionalDetailFailureFallback": {
+      "state": "running",
+      "eyeDetail": "original (optional detail unavailable)"
+    }
+  },
+  "errors": [],
+  "passed": true
+}
