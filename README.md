@@ -2,7 +2,9 @@
 
 本分支恢復使用者指定的歷史模型，保留原臉、髮型、身形、服裝表面及原貼圖，另加骨架、琴盒與黑貓。
 
-**獨立修復候選版。正式網站仍是 main；神情與美術還原度尚未完成驗收。**
+**歷史模型修復版已於 `f411fe1` 發佈。本分支是在該版本上做局部修色與檢視修復；整體美術還原度仍為 PARTIAL。**
+
+本輪比較入口為 `repair-review/`，同一鏡頭並排顯示已發佈版、局部修復與原設定圖。鼻尖灰斑以原貼圖兩側的膚色作接合，沒有改寫模型或貼圖檔。角色檢視另修正取景與按鈕重疊、加入雙側切換；可選眼部檔載入失敗時仍可用原角色開始遊戲。詳見 `DETAIL-REPAIR.md`。
 
 使用者選中的第二張截圖與歷史 `Generated-Review/view-180.png` 解碼像素完全一致，原模型為 `Yui-Generated-Unreviewed.glb`。Unreviewed 是歷史檔名；現在選用它依照使用者的明確指定。
 
@@ -13,8 +15,10 @@
 在此分支目錄執行 `python -m http.server 5173`：
 
 - `http://localhost:5173/selected-review/`：歷史截圖、正面、近鏡、側面、跑姿與原設定圖。
+- `http://localhost:5173/repair-review/`：本輪局部修復即時對照。
 - `http://localhost:5173/dist/`：遊戲及角色展示，含獨立眼部細修。
 - `http://localhost:5173/dist/?eyes=original`：同一骨架及配件，關閉眼部細修，對照原模型。
+- `http://localhost:5173/dist/?detail=published`：關閉本輪鼻尖修色，對照 `f411fe1` 外觀。
 
 方向鍵 / A、D 換道；空白鍵 / W 起跳；P / Esc 暫停；觸控按鈕亦可操作。音樂按鈕控制使用者提供的《Sunny Hillside Dash》。
 

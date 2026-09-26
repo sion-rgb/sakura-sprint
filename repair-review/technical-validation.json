@@ -1,0 +1,13 @@
+{
+  "date": "2026-09-26T07:43:01.521Z",
+  "baseSha256": "3f6ff47b618c04c8282a20702d323f5fa4f1eec6ac55bed9c188bab606c6a2b2",
+  "baseAndEyeGlbUnchanged": true,
+  "allGeometryAttributesUnchanged": true,
+  "originalMaterialMapsUnchanged": true,
+  "affectedVertices": 108,
+  "totalVertices": 842505,
+  "affectedPercent": 0.012818915021275839,
+  "allAffectedVerticesBoundRigidlyToHead": true,
+  "eyeMouthAndBangsOutsideMask": true,
+  "passed": true
+}

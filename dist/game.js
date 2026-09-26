@@ -1,5 +1,5 @@
 import * as THREE from './three.module.js';
-import {createYui} from './character.js?v=selected-3f6ff47b61-8b391270';
+import {createYui} from './character.js?v=detail-repair-20260926';
 import {createWorld} from './world.js?v=7';
 
 const $=id=>document.getElementById(id);
@@ -46,6 +46,7 @@ $('sound').onclick=()=>{muted=!muted;syncMusic();try{localStorage.setItem('yui-m
 $('left').onclick=()=>move(-1);$('right').onclick=()=>move(1);$('jump').onclick=jump;
 $('inspect').onclick=()=>{showcase=true;zoom=1;orbit=0;document.body.classList.add('showcase');};
 $('view-front').onclick=()=>orbit=0;$('view-side').onclick=()=>orbit=Math.PI/2;$('view-back').onclick=()=>orbit=Math.PI;
+$('view-other-side').onclick=()=>orbit=-Math.PI/2;
 $('view-close').onclick=()=>{zoom=zoom===1?3:1;$('view-close').textContent=zoom===1?'臉部特寫':'全身';};
 $('view-motion').onclick=()=>{demo=!demo;$('view-motion').textContent=demo?'靜態展示':'示範跑步';};
 $('view-exit').onclick=resetView;
@@ -67,6 +68,11 @@ function addRow(){const blocked=Math.floor(Math.random()*3)-1;const o=new THREE.
   for(let i=0;i<4;i++){const n=new THREE.Group();n.position.set(path*3,1.05,-98-i*3.1);n.userData.type='coin';const ring=new THREE.Mesh(new THREE.TorusGeometry(.23,.055,8,20),colors.note);ring.scale.y=.78;n.add(ring);box(n,.055,.50,.055,colors.note,.21,.24);box(n,.16,.055,.055,colors.note,.28,.47);scene.add(n);objects.push(n);}
 }
 let last=performance.now(),time=0;
+let controlsRect={top:innerHeight,left:innerWidth};
+// Re-measure only when the panel/viewport changes, not on every animation frame.
+const measureControls=()=>{controlsRect=$('character-controls').getBoundingClientRect();};
+new ResizeObserver(measureControls).observe($('character-controls'));
+addEventListener('resize',measureControls);
 function frame(now){requestAnimationFrame(frame);const dt=Math.min((now-last)/1000,.045);last=now;time+=dt;const running=state==='running';
   if(running){distance+=speed*dt;speed=Math.min(24,12+distance/230);spawn-=dt;if(spawn<=0){addRow();spawn=1.7;}vy-=22*dt;y=Math.max(0,y+vy*dt);if(y===0)vy=0;sync();}
   runner.position.x=THREE.MathUtils.damp(runner.position.x,lane*3,13,dt);runner.position.y=y;
@@ -82,7 +88,20 @@ function frame(now){requestAnimationFrame(frame);const dt=Math.min((now-last)/10
   const narrow=innerWidth<650,lobby=state==='intro';
   const target=new THREE.Vector3(lobby?(showcase?0:(narrow?0:-.8)):0,lobby?(showcase&&zoom>1?2.72:(showcase?1.35:1.94)):1.45,lobby?0:-3.5);
   const dest=new THREE.Vector3(lobby?(showcase?.1:(narrow?.1:.85)):0,lobby?(showcase&&zoom>1?2.77:(showcase?2.08:2.45)):(narrow?5.8:5.0),lobby?(showcase?8.1:(narrow?8.3:6.7))/zoom:(narrow?13:10));
-  camera.fov=lobby?42:(narrow?63:48);camera.aspect=innerWidth/innerHeight;camera.updateProjectionMatrix();camera.position.lerp(dest,1-Math.exp(-dt*5));camera.lookAt(target);camera.layers.set(showcase?1:0);
+  camera.fov=lobby?42:(narrow?63:48);camera.aspect=innerWidth/innerHeight;
+  if(showcase){
+    // Reserve actual space for the header and controls so they cannot obscure
+    // the face, coat, knees or boots at either portrait or landscape sizes.
+    const compact=innerHeight<=520&&innerWidth>=651;
+    const top=narrow?76:94,bottom=compact?18:Math.max(0,innerHeight-controlsRect.top+16);
+    const width=compact?Math.max(100,controlsRect.left-16):innerWidth;
+    const height=Math.max(100,innerHeight-top-bottom);
+    renderer.setViewport(0,bottom,width,height);camera.aspect=width/height;
+    target.set(0,zoom>1?2.73:1.62,zoom>1?.25:0);
+    const span=Math.max(zoom>1?1.02:3.65,(zoom>1?1.08:2.10)/camera.aspect);
+    dest.set(.015,target.y+.04,target.z+span/(2*Math.tan(THREE.MathUtils.degToRad(camera.fov/2))));
+  }else renderer.setViewport(0,0,innerWidth,innerHeight);
+  camera.updateProjectionMatrix();camera.position.lerp(dest,1-Math.exp(-dt*5));camera.lookAt(target);camera.layers.set(showcase?1:0);
   scene.background.set(showcase?'#292d40':'#303d59');character.updateView(camera);renderer.render(scene,camera);
 }
 requestAnimationFrame(frame);

@@ -1,0 +1,14 @@
+<!doctype html>
+<html lang="zh-Hant"><meta charset="utf-8"><meta name="viewport" content="width=device-width,initial-scale=1">
+<title>月白結 · 局部修復對照</title>
+<link rel="icon" href="data:,">
+<style>
+*{box-sizing:border-box}body{margin:0;background:#262b3a;color:#eee9ef;font:15px system-ui}header,footer{padding:18px 24px}h1{font-size:22px;margin:0 0 8px}p{line-height:1.6;margin:8px 0}nav{display:flex;gap:8px;flex-wrap:wrap;margin-top:16px}button,a{font:inherit;color:inherit;background:#3c4356;border:1px solid #737788;border-radius:4px;padding:9px 12px;text-decoration:none;cursor:pointer}button[aria-pressed=true]{color:#282d3b;background:#e6ddd7}main{display:grid;grid-template-columns:repeat(3,minmax(0,1fr));gap:12px;padding:0 24px}article{min-width:0;background:#303646}h2{font-size:15px;margin:0;padding:12px}canvas{display:block;width:100%;aspect-ratio:3/4}.reference{position:relative;aspect-ratio:3/4;overflow:hidden;background:#e5e1de}.reference img{width:100%;height:100%;object-fit:contain}.ref-frame{width:100%;height:100%}.reference.face{display:grid;place-items:center}.reference.face .ref-frame{position:relative;height:auto;aspect-ratio:1.18;overflow:hidden}.reference.face img{position:absolute;width:630%;height:auto;max-width:none;left:-412.1%;top:-20.1%}small{color:#b9b9c7}#status{font-size:13px}dialog{max-width:95vw;width:1000px;max-height:95vh;background:#eee}dialog img{width:100%}@media(max-width:760px){main{grid-template-columns:1fr 1fr;padding:0 12px;gap:8px}article:last-child{grid-column:1/-1}.reference{max-height:60vh}.reference.face{aspect-ratio:1.15;max-height:none}header,footer{padding:16px}h2{font-size:12px}}
+</style>
+<header><h1>月白結 · 同模型局部修復</h1><p>左邊是已發佈版本，右邊只修鼻尖灰斑。使用相同模型、眼睛、鏡頭、光線和動作。</p>
+<nav id="views"><button data-angle="0" aria-pressed="true">正面</button><button data-angle="45">斜側</button><button data-angle="90">左側</button><button data-angle="-90">右側</button><button id="size">全身</button><button id="motion">示範跑步</button><button id="setting">完整設定圖</button><a href="../dist/">遊戲中查看 ↗</a></nav>
+<p id="status">載入同一份歷史模型…</p></header>
+<main><article><h2>已發佈版本 · f411fe1</h2><canvas id="before"></canvas></article><article><h2>局部修復 · 原臉形與眼形保留</h2><canvas id="after"></canvas></article><article><h2>唯一角色設定基準</h2><div class="reference face"><div class="ref-frame"><img src="../dist/yui-setting.png" alt="原設定圖的平常表情：安靜、溫柔、含蓄"></div></div></article></main>
+<footer><p>鼻尖灰斑取用原貼圖兩側的膚色作柔和接合。原 GLB、貼圖、UV、骨架及動畫檔案均保留。</p><small>此頁供比較局部修改；原模型的雕塑和貼圖仍未達到設定圖的精緻程度。</small><p><a href="../selected-review/">前一輪歷史比較</a> <a href="../dist/?detail=published">關閉本次局部修復</a></p></footer>
+<dialog><button id="close">關閉</button><img src="../dist/yui-setting.png" alt="原始完整設定圖"></dialog>
+<script type="module" src="review.js"></script></html>

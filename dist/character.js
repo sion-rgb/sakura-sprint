@@ -1,28 +1,36 @@
 import * as THREE from './three.module.js';
 import { GLTFLoader } from './GLTFLoader.js';
+import { applyFaceDetail } from './face-detail.js?v=1';
 
 // Fixed-UV rigged character. Textures stay attached to the animated surface.
-export function createYui() {
+export function createYui({ faceDetail = new URLSearchParams(location.search).get('detail') !== 'published' } = {}) {
   const root = new THREE.Group();
   root.name = 'Tsukishiro Yui';
   let mixer, current;
   const actions = {};
   const info = { source: 'User-selected historical 3D surface / preserved original mesh and UV', asset: 'yui-selected.glb', faceReplaced: false, ready: false,
     meshes: 0, triangles: 0, bones: 0, clips: [] };
-  const ready = new GLTFLoader().loadAsync('./yui-selected.glb?v=selected-3f6ff47b61-8b391270').then(async gltf => {
+  const ready = new GLTFLoader().loadAsync(new URL('./yui-selected.glb?v=selected-3f6ff47b61-8b391270', import.meta.url).href).then(async gltf => {
     const model = gltf.scene;
     // Add only the setting sheet's eyes and short mouth line to the original head. The source
     // character, face geometry and original UVs remain untouched and recoverable.
     info.eyeDetail = 'original';
     if (new URLSearchParams(location.search).get('eyes') !== 'original') {
-      const eye = await new GLTFLoader().loadAsync('./yui-eye-detail.glb?v=reference-8b391270ac');
-      const head = model.getObjectByName('Head');
-      if (!head?.isBone) throw new Error('Original head attachment bone missing');
-      model.add(eye.scene);
-      model.updateMatrixWorld(true);
-      head.attach(eye.scene);
-      info.eyeDetail = 'original setting sheet / separate fixed-UV eyes and mouth line';
+      try {
+        const eye = await new GLTFLoader().loadAsync(new URL('./yui-eye-detail.glb?v=reference-8b391270ac', import.meta.url).href);
+        const head = model.getObjectByName('Head');
+        if (!head?.isBone) throw new Error('Original head attachment bone missing');
+        model.add(eye.scene);
+        model.updateMatrixWorld(true);
+        head.attach(eye.scene);
+        info.eyeDetail = 'original setting sheet / separate fixed-UV eyes and mouth line';
+      } catch {
+        // The optional detail layer must not make the intact base unplayable.
+        info.eyeDetail = 'original (optional detail unavailable)';
+      }
     }
+    info.faceDetail = 'published';
+    if (faceDetail) info.faceDetail = applyFaceDetail(model.getObjectByName('Yui_Selected_Original_Surface'));
     const clipNames = gltf.animations.map(clip => clip.name);
     for (const name of ['Idle', 'Run', 'Jump']) {
       if (!clipNames.includes(name)) throw new Error(`Incomplete character animation: ${name}`);
